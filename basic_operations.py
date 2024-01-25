@@ -26,5 +26,20 @@ def multiply(a, b):
         i += 1
     return multiply[::-1]
 
+# add a normalization function that matches the lengths of 2 polynomials
 def divide(a, b):
-    pass
+    curr_poly = a
+    quotient = []
+    while len(b) <= len(curr_poly):
+        quotient.append(curr_poly[0]/b[0])
+        curr_poly= trim(subtract(curr_poly, int(round(curr_poly[0]/b[0])) * b))
+    remainder = curr_poly
+    
+    return [quotient, remainder]
+
+def trim(a):
+    while a[0] == 0:
+        a.pop(0)
+    return a
+
+print(divide([4,0,2,0], [2,1]))
