@@ -1,14 +1,25 @@
-def differentiate(a):
+def differentiate(a, n):
+    if n > len(a):
+        return 'invalid'
+    elif n == len(a):
+        return [0]
+    
     a = a[::-1]
-    i = 0
+    j = 0
     differentiated = []
 
-    while i < len(a):
-        differentiated.append(i * a[i])
-        i += 1
+    while j < n:
+        i = 0
+        while i < len(a):
+            differentiated.append(i * a[i])
+            i += 1
+        differentiated.pop(0)
+        a = differentiated
+        differentiated = []
+        j += 1
 
-    differentiated = differentiated[::-1]
-    differentiated.pop()
+    differentiated = a[::-1]
+    # differentiated.pop()
     return differentiated
 
 def integrate(a):
@@ -23,4 +34,4 @@ def integrate(a):
     integrated.append('c')
     return integrated
 
-print(integrate([45, 3, 2, 1]))
+print(differentiate([4, 3, 2, 1], 7))
