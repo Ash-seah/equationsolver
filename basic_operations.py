@@ -24,7 +24,7 @@ def multiply(a, b):
             multiply[i+j] += a[i] * b[j]
             j += 1
         i += 1
-    return multiply
+    return multiply[::-1]
 
 def divide(a, b):
     pass
