@@ -19,7 +19,6 @@ def differentiate(a, n):
         j += 1
 
     differentiated = a[::-1]
-    # differentiated.pop()
     return differentiated
 
 def integrate(a):
@@ -33,5 +32,3 @@ def integrate(a):
     integrated = integrated[::-1]
     integrated.append('c')
     return integrated
-
-print(differentiate([4, 3, 2, 1], 7))
