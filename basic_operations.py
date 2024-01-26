@@ -1,3 +1,5 @@
+import numpy
+
 def add(a, b):
     i = 0
     addition = []
@@ -10,7 +12,6 @@ def subtract(a, c):
     b = c
     print(len(a), len(b))
     while len(a) != len(b):
-        print(len(a), len(b))
         b = list(b[::-1])
         b.append(0)
         b = list(b[::-1])
@@ -33,23 +34,33 @@ def multiply(a, b):
         i += 1
     return trim(list(multiply[::-1]))
 
+def float_multiply(a, f):
+    i = 0
+    while i < len(a):
+        a[i] *= f
+        i += 1
+    return a
+
 # add a normalization function that matches the lengths of 2 polynomials
 def divide(a, b):
-    curr_poly = a
-    quotient = []
     i = 0
-    while i < len(a) - len(b) + 1:
-        temp = [0] * (len(a) - len(b) + 1)
-        temp[i] += int(curr_poly[i]/b[0])
-        curr_poly = subtract(curr_poly, multiply(temp, b))
-        quotient.append(int(curr_poly[i]/b[0]))
+    m = len(a) - 1
+    n = len(b) - 1
+    scale = 1. / b[0]
+    q = [0] * max(m - n + 1, 1)
+    r = a
+    while i < m - n + 1:
+        d = scale * r[i]
+        q[i] = d
+        r[i:i+n+1] = subtract(r[i:i+n+1],float_multiply(b, d))
         i += 1
-    
-    return quotient
+
+    return [q, r]
 
 def trim(a):
     while a[0] == 0:
         a.pop(0)
     return a
 
-print(divide([2,9,14,5], [2,1]))
+print(divide([2, 5, 7, 16, 15], [2, 3]))
+print(numpy.polydiv([2, 5, 7, 16, 15], [2, 3]))
