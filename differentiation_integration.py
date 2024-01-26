@@ -21,15 +21,29 @@ def differentiate(a, n):
     differentiated = a[::-1]
     return differentiated
 
-# generalize to n
-def integrate(a):
+def integrate(a, n):
+
     a = a[::-1]
-    i = 0
+    j = 0
     integrated = []
-    while i < len(a):
-        integrated.append((1/(i+1)) * a[i])
-        i += 1
-    
-    integrated = integrated[::-1]
-    integrated.append('c')
+
+    while j < n:
+
+        i = 0
+        while i < len(a):
+            if a[i] == 'c':
+                i += 1
+                integrated.append('c')
+                continue
+            integrated.append((1/(i+1)) * a[i])
+            i += 1
+        
+        integrated = integrated[::-1]
+        integrated.append('c')
+        print(integrated)
+        a = integrated[::-1]
+        integrated = []
+        j += 1
+
+    integrated = a[::-1]
     return integrated
