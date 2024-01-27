@@ -1,4 +1,9 @@
-def add(a, b):
+def add(a, c):
+    b = c
+    while len(a) != len(b):
+        b = list(b[::-1])
+        b.append(0)
+        b = list(b[::-1])
     i = 0
     addition = []
     while i < len(a):

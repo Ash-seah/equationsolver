@@ -23,7 +23,7 @@ def differentiate(a, n):
 
 
 def integrate(a, n):
-
+    print(a)
     a = a[::-1]
     j = 0
     integrated = []

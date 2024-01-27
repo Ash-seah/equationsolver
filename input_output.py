@@ -17,10 +17,11 @@ def ready_input(a):
         i = 0
         while i < int(lowest_power):
             coefficients.append(0)
+            i += 1
     elif 'x' in split_poly[0] and 'x^' not in split_poly[0]:
         coefficients.append(0)
     else:
-        coefficients.append(split_poly[0].replace(' ', ''))
+        coefficients.append(int(split_poly[0].replace(' ', '')))
         split_poly.pop(0)
         
 
@@ -72,7 +73,7 @@ def ready_output(a):
     return tex_str
 
 def output(a):
-    txte = '$' + a + '$'
+    txte = '$' + str(a) + '$'
 
 
     plt.text(0.5, 0.5, txte, fontsize=14, ha='center', va='center')
