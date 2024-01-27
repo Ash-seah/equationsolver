@@ -8,7 +8,6 @@ def add(a, b):
 
 def subtract(a, c):
     b = c
-    print(len(a), len(b))
     while len(a) != len(b):
         b = list(b[::-1])
         b.append(0)
@@ -59,4 +58,3 @@ def trim(a):
     while a[0] == 0:
         a.pop(0)
     return a
-

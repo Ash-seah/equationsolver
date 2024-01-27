@@ -21,6 +21,7 @@ def differentiate(a, n):
     differentiated = a[::-1]
     return differentiated
 
+
 def integrate(a, n):
 
     a = a[::-1]

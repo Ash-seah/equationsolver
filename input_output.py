@@ -2,6 +2,9 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 rcParams['text.usetex'] = True
 
+# ready_input has a bug when there's a constant at the end
+
+bug = '4x^4 + 8x'
 def ready_input(a):
     i = 0
     split_poly = a.split('+')[::-1]
@@ -9,9 +12,17 @@ def ready_input(a):
     prev_power = 0
     # highest_power = int(split_poly[len(split_poly)-1].split('x')[1].replace(' ', '').replace('^', ''))
     
-    if 'x' not in split_poly[0]:
-        coefficients.append(int(split_poly[0].replace(' ', '')))
+    if 'x^' in split_poly[0]:
+        lowest_power = split_poly[0].split('x')[1].replace(' ', '').replace('^', '')
+        i = 0
+        while i < int(lowest_power):
+            coefficients.append(0)
+    elif 'x' in split_poly[0] and 'x^' not in split_poly[0]:
+        coefficients.append(0)
+    else:
+        coefficients.append(split_poly[0].replace(' ', ''))
         split_poly.pop(0)
+        
 
     while i < len(split_poly):
         coe = split_poly[i].split('x')[0].replace(' ', '')
@@ -27,9 +38,8 @@ def ready_input(a):
             coefficients.append(int(coe))
             prev_power += 1
         i += 1
-
     return coefficients[::-1]
-
+print(ready_input(bug))
 def find_sign(a):
     if a > 0:
         return '+'
@@ -42,7 +52,8 @@ def ready_output(a):
     i = 0
     tex_str = ''
     while i < len(a):
-        if a[i] == 0:
+        if a[i] == 0 and i != len(a) - 1:
+            tex_str += f' {find_sign(a[i + 1])} '
             i += 1
             continue
         elif i == len(a) - 1:

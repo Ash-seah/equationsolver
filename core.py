@@ -7,7 +7,11 @@ import newtons_method
 import input_output
 from functools import partial
 
-def call(func):
+print(input_output.ready_input('4x^4 + 8x'))
+print(differentiation_integration.differentiate(input_output.ready_input('4x^4 + 8x'), 1))
+
+def call():
+    func = 'derivative'
     a = input_output.ready_input(str(inp1.get()))
 
     if func == 'integral':
@@ -46,6 +50,10 @@ def call(func):
         result = input_output.ready_output(result)
         input_output.output(result)
 
+def call_integrate():
+    a = input_output.ready_input(str(inp1.get()))
+    b = int(inp2.get())
+    print(differentiation_integration.integrate(a, int(b)))
 # settings
 customtkinter.set_appearance_mode('System')
 customtkinter.set_default_color_theme('blue')
@@ -65,10 +73,10 @@ entry2 = customtkinter.CTkEntry(app, width=350, height=40, textvariable=inp2)
 entry2.pack()
 
 # buttons
-calculate = customtkinter.CTkButton(app, text='Integral', command=lambda: call('integrate'))
+calculate = customtkinter.CTkButton(app, text='Integral', command=call_integrate)
 calculate.pack()
 
-calculate = customtkinter.CTkButton(app, text='derivative', command=lambda: call('derivative'))
+calculate = customtkinter.CTkButton(app, text='derivative', command=call)
 calculate.pack()
 
 calculate = customtkinter.CTkButton(app, text='evaluate', command=call)
