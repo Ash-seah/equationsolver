@@ -1,5 +1,3 @@
-import numpy
-
 def add(a, b):
     i = 0
     addition = []
@@ -62,5 +60,3 @@ def trim(a):
         a.pop(0)
     return a
 
-print(divide([2, 5, 7, 16, 15], [2, 3]))
-print(numpy.polydiv([2, 5, 7, 16, 15], [2, 3]))

@@ -40,7 +40,6 @@ def integrate(a, n):
         
         integrated = integrated[::-1]
         integrated.append('c')
-        print(integrated)
         a = integrated[::-1]
         integrated = []
         j += 1

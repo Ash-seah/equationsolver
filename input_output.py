@@ -1,9 +1,13 @@
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
+rcParams['text.usetex'] = True
+
 def ready_input(a):
     i = 0
     split_poly = a.split('+')[::-1]
     coefficients = []
     prev_power = 0
-    highest_power = int(split_poly[len(split_poly)-1].split('x')[1].replace(' ', '').replace('^', ''))
+    # highest_power = int(split_poly[len(split_poly)-1].split('x')[1].replace(' ', '').replace('^', ''))
     
     if 'x' not in split_poly[0]:
         coefficients.append(int(split_poly[0].replace(' ', '')))
@@ -27,8 +31,10 @@ def ready_input(a):
     return coefficients[::-1]
 
 def find_sign(a):
-    if a >= 0:
+    if a > 0:
         return '+'
+    elif a == 0:
+        return ''
     else:
         return '-'
 
@@ -54,18 +60,13 @@ def ready_output(a):
             i += 1
     return tex_str
 
-print(ready_output([4, 7, 9, 10, 0, 6 ,2]))
-
-import matplotlib.pyplot as plt
-from matplotlib import rcParams
-rcParams['text.usetex'] = True
-
-txte = '$' + ready_output([4, 7, 9, 10, 0, 6 ,2]) + '$'
+def output(a):
+    txte = '$' + a + '$'
 
 
-plt.text(0.5, 0.5, txte, fontsize=14, ha='center', va='center')
-ax = plt.gca()
-ax.axes.get_xaxis().set_visible(False)
-ax.axes.get_yaxis().set_visible(False)
+    plt.text(0.5, 0.5, txte, fontsize=14, ha='center', va='center')
+    ax = plt.gca()
+    ax.axes.get_xaxis().set_visible(False)
+    ax.axes.get_yaxis().set_visible(False)
 
-plt.show()
+    plt.show()
