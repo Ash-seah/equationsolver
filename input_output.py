@@ -2,15 +2,11 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 rcParams['text.usetex'] = True
 
-# ready_input has a bug when there's a constant at the end
-
-bug = '4x^4 + 8x'
 def ready_input(a):
     i = 0
     split_poly = a.split('+')[::-1]
     coefficients = []
     prev_power = 0
-    # highest_power = int(split_poly[len(split_poly)-1].split('x')[1].replace(' ', '').replace('^', ''))
     
     if 'x^' in split_poly[0]:
         lowest_power = split_poly[0].split('x')[1].replace(' ', '').replace('^', '')
@@ -40,7 +36,7 @@ def ready_input(a):
             prev_power += 1
         i += 1
     return coefficients[::-1]
-print(ready_input(bug))
+
 def find_sign(a):
     if a > 0:
         return '+'
