@@ -1,3 +1,5 @@
+import numpy as np
+
 def add(a, c):
     b = c
     while len(a) != len(b):
@@ -63,3 +65,15 @@ def trim(a):
     while a[0] == 0:
         a.pop(0)
     return a
+
+def add_np(a, b):
+    return(np.polyadd(a, b))
+
+def subtract_np(a, b):
+    return(np.polysub(a, b))
+
+def multiply_np(a, b):
+    return(np.polymul(a, b))
+
+def divide_np(a, b):
+    return(np.polydiv(a, b))

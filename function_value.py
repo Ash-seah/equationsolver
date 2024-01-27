@@ -1,3 +1,5 @@
+import numpy as np
+
 def evaluate(a, n):
     val = 0
     i = 0
@@ -6,3 +8,6 @@ def evaluate(a, n):
         i += 1
 
     return int(val)
+
+def evaluate_np(a, n):
+    return(np.polyval(a, n))

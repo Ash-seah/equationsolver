@@ -1,3 +1,5 @@
+import numpy as np
+
 def differentiate(a, n):
     if n > len(a):
         return 'invalid'
@@ -47,3 +49,9 @@ def integrate(a, n):
 
     integrated = a[::-1]
     return integrated
+
+def differentiate_np(a, n):
+    return(np.polyder(a, n))
+
+def integrate_np(a, n):
+    return(np.polyint(a, n))
