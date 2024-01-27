@@ -16,7 +16,8 @@ entry = customtkinter.CTkEntry(app, width=350, height=40, textvariable=inp)
 entry.pack()
 
 # calculate button
-calculate = customtkinter.CTkButton(app, text='Calculate', command=)
+calculate = customtkinter.CTkButton(app, text='Calculate')
+calculate.pack()
 
 # ejraye GUI
 app.mainloop()
