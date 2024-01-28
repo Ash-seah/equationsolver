@@ -7,49 +7,8 @@ import newtons_method
 import input_output
 from functools import partial
 
-print(input_output.ready_input('4x^4 + 8x'))
-print(differentiation_integration.differentiate(input_output.ready_input('4x^4 + 8x'), 1))
-
-def call():
-    func = 'multiply'
-    a = input_output.ready_input(str(inp1.get()))
-
-    if func == 'integral':
-        b = int(inp2.get())
-        print(differentiation_integration.integrate(a, int(b))) #fix
-    elif func == 'derivative':
-        result = differentiation_integration.differentiate(a, int(inp2.get()))
-        result = input_output.ready_output(result)
-        input_output.output(result)
-    elif func == 'evaluate':
-        result = function_value.evaluate(a, int(inp2.get()))
-        result = input_output.ready_output(result)
-        input_output.output(result)
-    elif func == 'root':
-        result = newtons_method.find_root(a, int(inp2.get()))
-        result = input_output.ready_output(result)
-        input_output.output(result)
-    elif func == 'add':
-        b = input_output.ready_input(str(inp2.get()))
-        result = basic_operations.add(a, b)
-        result = input_output.ready_output(result)
-        input_output.output(result)
-    elif func == 'subtract':
-        b = input_output.ready_input(str(inp2.get()))
-        result = basic_operations.subtract(a, b)
-        result = input_output.ready_output(result)
-        input_output.output(result)
-    elif func == 'multiply':
-        b = input_output.ready_input(str(inp2.get()))
-        result = basic_operations.multiply(a, b)
-        result = input_output.ready_output(result)
-        input_output.output(result)
-    elif func == 'divide':
-        b = input_output.ready_input(str(inp2.get()))
-        result = basic_operations.divide(a, b)
-        result = input_output.ready_output(result)
-        input_output.output(result)
-
+# tabe ha. har kodam as input_output tabe haye amade konande voroodi
+# va khorooji ra seda mikonand
 def call_integrate(): # special function to parse c
     a = input_output.ready_input(str(inp1.get()))
     b = int(inp2.get())

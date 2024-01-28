@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 rcParams['text.usetex'] = True
 
+# in tabe voroodi GUI ra baraye dade shodan be tavabe digar amade mikonad
+# voroodi ra bar asas + va x joda mikonad sepas etelaat ra parse mikonad
 def ready_input(a):
     i = 0
     split_poly = a.split('+')[::-1]
@@ -37,18 +39,24 @@ def ready_input(a):
         i += 1
     return coefficients[::-1]
 
+# in tabe baraye peyda kardan alamat estefade mishavad. yek tabe
+# komaki baraye ready_output ast
 def find_sign(a):
-    if a > 0:
+    if a > 0 or a == 'c':
         return '+'
     elif a == 0:
         return ''
     else:
         return '-'
 
+# in tabe yek bordar zarayeb ra baraye dade shodan be latex amade mikonad
 def ready_output(a):
     i = 0
     tex_str = ''
     while i < len(a):
+        if a[i] == 'c':
+            tex_str += ' c'
+            break
         if a[i] == 0 and i != len(a) - 1:
             tex_str += f' {find_sign(a[i + 1])} '
             i += 1
@@ -68,6 +76,8 @@ def ready_output(a):
             i += 1
     return tex_str
 
+# in tabe ba estefade as latex dakhel ketabkhane matplotlib voroodi
+# ra dar latex neshan midahad 
 def output(a):
     txte = '$' + str(a) + '$'
 

@@ -1,5 +1,6 @@
 import numpy as np
 
+# in tabe yek adad ra be jaye x dar yek chand jomlei jagozari mikonad
 def evaluate(a, n):
     val = 0
     i = 0

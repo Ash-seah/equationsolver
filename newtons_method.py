@@ -2,6 +2,7 @@ import function_value
 import differentiation_integration
 import numpy as np
 
+# in tabe be vasile ravesh newton yek rishe haghighi ra dar soorat vojood peyda mikonad
 def find_root(a):
 
     i = 0

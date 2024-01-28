@@ -1,5 +1,7 @@
 import numpy as np
 
+# in tabe tavan har adad ra dar khod zarb mikonad va dar akhar
+# yek 0 as enteha pak mikonad
 def differentiate(a, n):
     if n > len(a):
         return 'invalid'
@@ -24,6 +26,8 @@ def differentiate(a, n):
     return differentiated
 
 
+# in tabe 1/1+tavan har adad ra dar khod zarb mikonad va dar akhar
+# yek c be enteha ezafe mikonad 
 def integrate(a, n):
     print(a)
     a = a[::-1]

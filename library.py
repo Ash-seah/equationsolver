@@ -43,7 +43,6 @@ def float_multiply(a, f):
         i += 1
     return a
 
-# add a normalization function that matches the lengths of 2 polynomials
 def divide(a, b):
     i = 0
     m = len(a) - 1

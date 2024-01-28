@@ -1,5 +1,7 @@
 import numpy as np
 
+# tabe be ezaye har eleman dar a, an ra ba haman eleman dar c jam mikonad 
+# va hasel ra return mikonad
 def add(a, c):
     b = c
     while len(a) != len(b):
@@ -13,6 +15,8 @@ def add(a, c):
         i += 1
     return addition
 
+# tabe be ezaye har eleman dar a, an ra ba haman eleman dar c tafriq mikonad 
+# va hasel ra return mikonad
 def subtract(a, c):
     b = c
     while len(a) != len(b):
@@ -26,6 +30,8 @@ def subtract(a, c):
         i += 1
     return subtraction
 
+# tabe be ezaye har eleman dar a, an ra ba haman eleman dar c zarb mikonad 
+# va hasel ra dar har loop dar jaye khod dar list multiply gharar midahad
 def multiply(a, b):
     a, b = a[::-1], b[::-1]
     multiply = [0] * (len(a) + len(b))
@@ -38,6 +44,8 @@ def multiply(a, b):
         i += 1
     return trim(list(multiply[::-1]))
 
+# in yek tabe komaki baraye tabe divide ast. yek float ra dar hame eleman haye 
+# yek list zarb mikonad
 def float_multiply(a, f):
     i = 0
     while i < len(a):
@@ -45,7 +53,9 @@ def float_multiply(a, f):
         i += 1
     return a
 
-# add a normalization function that matches the lengths of 2 polynomials
+# in code be ezaye tool maghsoom alaih maghsoom ra mipeymayad va dar har gam
+# scale ra dar chand jomlei hal hazer zarb mikonad va an ra dar q zakhire mikonad
+# q haman kharej ghesmat va r baghi mande ast
 def divide(a, b):
     i = 0
     m = len(a) - 1
@@ -61,6 +71,8 @@ def divide(a, b):
 
     return [q, r]
 
+
+# in code baraye hazf kardan 0 haye aval tabe ast
 def trim(a):
     while a[0] == 0:
         a.pop(0)
