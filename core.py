@@ -11,8 +11,9 @@ from functools import partial
 # va khorooji ra seda mikonand
 def call_integrate(): # special function to parse c
     a = input_output.ready_input(str(inp1.get()))
-    b = int(inp2.get())
-    print(differentiation_integration.integrate(a, int(b)))
+    result = differentiation_integration.integrate(a, int(inp2.get()))
+    result = input_output.ready_output(result)
+    input_output.output(result)
 
 def call_derivative():
     a = input_output.ready_input(str(inp1.get()))

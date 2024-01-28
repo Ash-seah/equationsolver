@@ -42,7 +42,7 @@ def ready_input(a):
 # in tabe baraye peyda kardan alamat estefade mishavad. yek tabe
 # komaki baraye ready_output ast
 def find_sign(a):
-    if a > 0 or a == 'c':
+    if a == 'c' or a > 0:
         return '+'
     elif a == 0:
         return ''
